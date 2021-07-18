@@ -11,11 +11,12 @@ const Forms = () => {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 
-	console.log(firstName);
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log("test submit");
+		console.log(firstName);
+		console.log(lastName);
+		console.log(email);
 	};
 	return (
 		<article>
@@ -28,6 +29,7 @@ const Forms = () => {
 						id="firstName"
 						name="firstName"
 						value={firstName}
+						onChange={(e) => setFirstName(e.target.value)}
 					/>
 				</div>
 				<div className="form-control">
@@ -37,11 +39,18 @@ const Forms = () => {
 						id="LastName"
 						name="LastName"
 						value={lastName}
+						onChange={(e) => setLastName(e.target.value)}
 					/>
 				</div>
 				<div className="form-control">
 					<label htmlFor="email">Email:</label>
-					<input type="email" id="email" name="email" value={email} />
+					<input
+						type="email"
+						id="email"
+						name="email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
 				</div>
 				<button type="submit" className="btn">
 					Submit
