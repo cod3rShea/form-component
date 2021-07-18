@@ -6,14 +6,29 @@ const Forms = () => {
 	const [email, setEmail] = useState("");
 	const [people, setPeople] = useState([]);
 
+	console.log(people);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (firstName && lastName && email) {
-			console.log("thanks");
+			const person = {
+				firstName: firstName,
+				lastName: lastName,
+				email: email,
+			};
+
+			setPeople((people) => {
+				return [...people, person];
+			});
+
+			setFirstName("");
+			setLastName("");
+			setEmail("");
 		} else {
 			console.log("enter value");
 		}
 	};
+
 	return (
 		<article>
 			<h2>Forms</h2>
