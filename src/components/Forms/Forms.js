@@ -20,10 +20,6 @@ const Forms = () => {
 			setPeople((people) => {
 				return [...people, person];
 			});
-
-			setFirstName("");
-			setLastName("");
-			setEmail("");
 		} else {
 			console.log("enter value");
 		}
