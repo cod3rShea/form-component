@@ -69,10 +69,11 @@ const Forms = () => {
 			{people.map((person) => {
 				const { firstName, lastName, email } = person;
 				return (
-					<div key={email}>
-						<h2>{firstName}</h2>
-						<h2>{lastName}</h2>
-						<h2>{email}</h2>
+					<div className="item" key={email}>
+						<h4>
+							{firstName} {lastName}
+						</h4>
+						<p>{email}</p>
 					</div>
 				);
 			})}
