@@ -67,11 +67,12 @@ const Forms = () => {
 				</button>
 			</form>
 			{people.map((person) => {
+				const { firstName, lastName, email } = person;
 				return (
-					<div key={person.email}>
-						<h2>{person.firstName}</h2>
-						<h2>{person.lastName}</h2>
-						<h2>{person.email}</h2>
+					<div key={email}>
+						<h2>{firstName}</h2>
+						<h2>{lastName}</h2>
+						<h2>{email}</h2>
 					</div>
 				);
 			})}
