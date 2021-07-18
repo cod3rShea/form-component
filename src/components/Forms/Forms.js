@@ -7,10 +7,14 @@ import React, { useState } from "react";
 // value, onChange
 
 const Forms = () => {
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log("test submit");
+	};
 	return (
 		<article>
 			<h2>Forms</h2>
-			<form className="form">
+			<form className="form" onSubmit={handleSubmit}>
 				<div className="form-control">
 					<label htmlFor="firstName">First Name:</label>
 					<input type="text" id="firstName" name="firstName" />
