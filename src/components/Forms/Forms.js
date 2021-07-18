@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 
-// JS
-// const input = document.getElementById('myText');
-// const inputValue = input.value
-// React
-// value, onChange
-
 const Forms = () => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
+	const [people, setPeople] = useState([]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log("test submit");
-		console.log(firstName);
-		console.log(lastName);
-		console.log(email);
+		if (firstName && lastName && email) {
+			console.log("thanks");
+		} else {
+			console.log("enter value");
+		}
 	};
 	return (
 		<article>
