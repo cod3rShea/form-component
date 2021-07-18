@@ -7,6 +7,12 @@ import React, { useState } from "react";
 // value, onChange
 
 const Forms = () => {
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [email, setEmail] = useState("");
+
+	console.log(firstName);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log("test submit");
@@ -17,15 +23,25 @@ const Forms = () => {
 			<form className="form" onSubmit={handleSubmit}>
 				<div className="form-control">
 					<label htmlFor="firstName">First Name:</label>
-					<input type="text" id="firstName" name="firstName" />
+					<input
+						type="text"
+						id="firstName"
+						name="firstName"
+						value={firstName}
+					/>
 				</div>
 				<div className="form-control">
 					<label htmlFor="LastName">Last Name:</label>
-					<input type="text" id="LastName" name="LastName" />
+					<input
+						type="text"
+						id="LastName"
+						name="LastName"
+						value={lastName}
+					/>
 				</div>
 				<div className="form-control">
 					<label htmlFor="email">Email:</label>
-					<input type="email" id="email" name="email" />
+					<input type="email" id="email" name="email" value={email} />
 				</div>
 				<button type="submit" className="btn">
 					Submit
