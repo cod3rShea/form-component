@@ -66,6 +66,15 @@ const Forms = () => {
 					Submit
 				</button>
 			</form>
+			{people.map((person) => {
+				return (
+					<div key={person.email}>
+						<h2>{person.firstName}</h2>
+						<h2>{person.lastName}</h2>
+						<h2>{person.email}</h2>
+					</div>
+				);
+			})}
 		</article>
 	);
 };
