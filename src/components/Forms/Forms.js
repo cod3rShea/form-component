@@ -33,11 +33,9 @@ const Forms = () => {
 			});
 		}
 	};
-	console.log(person.firstName);
-	console.log(person.lastName);
-	console.log(person.age);
+
 	console.log(person.gender);
-	console.log(person.email);
+
 	return (
 		<article>
 			<h2>Forms</h2>
@@ -74,16 +72,10 @@ const Forms = () => {
 				</div>
 				<div className="form-control">
 					<label htmlFor={person.gender}>Gender:</label>
-					<select onChange={handleChange} id="gender">
-						<option name="gender" value="male">
-							Male
-						</option>
-						<option name="gender" value="female">
-							Female
-						</option>
-						<option name="gender" value="wont say">
-							Wont Say
-						</option>
+					<select name="gender" onChange={handleChange} id="gender">
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="wont say">Wont Say</option>
 					</select>
 				</div>
 				<div className="form-control">
