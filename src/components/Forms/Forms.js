@@ -2,19 +2,42 @@ import React, { useState } from "react";
 
 const Forms = () => {
 	const [person, setPerson] = useState({
-		fistName: "",
+		firstName: "",
 		lastName: "",
 		age: "",
-		sex: "",
+		gender: "",
 		email: "",
 	});
+
 	const [people, setPeople] = useState([]);
 
-	const handleChange = (e) => {};
+	const handleChange = (e) => {
+		const name = e.target.name;
+		const value = e.target.value;
+		setPerson({ ...person, [name]: value });
+	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log("test");
+		if (person.firstName && person.lastName && person.age && person.email) {
+			const newPerson = {
+				...person,
+				id: new Date().getTime().toString(),
+			};
+			setPeople([...people, newPerson]);
+			setPerson({
+				firstName: "",
+				lastName: "",
+				age: "",
+				gender: "",
+				email: "",
+			});
+		}
 	};
+	console.log(person.firstName);
+	console.log(person.lastName);
+	console.log(person.age);
+	console.log(person.gender);
+	console.log(person.email);
 	return (
 		<article>
 			<h2>Forms</h2>
@@ -30,11 +53,11 @@ const Forms = () => {
 					/>
 				</div>
 				<div className="form-control">
-					<label htmlFor="LastName">Last Name:</label>
+					<label htmlFor="lastName">Last Name:</label>
 					<input
 						type="text"
 						id="LastName"
-						name="LastName"
+						name="lastName"
 						value={person.lastName}
 						onChange={handleChange}
 					/>
@@ -50,16 +73,16 @@ const Forms = () => {
 					/>
 				</div>
 				<div className="form-control">
-					<label htmlFor="sex">Sex:</label>
-					<select onChange={handleChange} id="sex">
-						<option value="" selected disabled hidden>
-							Select Sex
-						</option>
-						<option name="sex" value="Male">
+					<label htmlFor={person.gender}>Gender:</label>
+					<select onChange={handleChange} id="gender">
+						<option name="gender" value="male">
 							Male
 						</option>
-						<option name="sex" value="Female">
+						<option name="gender" value="female">
 							Female
+						</option>
+						<option name="gender" value="wont say">
+							Wont Say
 						</option>
 					</select>
 				</div>
@@ -78,14 +101,14 @@ const Forms = () => {
 				</button>
 			</form>
 			{people.map((person) => {
-				const { firstName, lastName, age, sex, email } = person;
+				const { firstName, lastName, age, gender, email, id } = person;
 				return (
-					<div className="item" key={email}>
+					<div className="item" key={id}>
 						<h4>
 							{firstName} {lastName}
 						</h4>
 						<span>{age}</span>
-						<span>{sex}</span>
+						<span>{gender}</span>
 						<p>{email}</p>
 					</div>
 				);
