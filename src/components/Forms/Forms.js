@@ -10,10 +10,14 @@ const Forms = () => {
 	});
 	const [people, setPeople] = useState([]);
 
+	const handleChange = (e) => {
+		e.prevent;
+	};
+
 	return (
 		<article>
 			<h2>Forms</h2>
-			<form className="form" onSubmit={handleSubmit}>
+			<form className="form">
 				<div className="form-control">
 					<label htmlFor="firstName">First Name:</label>
 					<input
@@ -21,7 +25,7 @@ const Forms = () => {
 						id="firstName"
 						name="firstName"
 						value={person.firstName}
-						onChange={(e) => setFirstName(e.target.value)}
+						onChange={handleChange}
 					/>
 				</div>
 				<div className="form-control">
@@ -31,7 +35,7 @@ const Forms = () => {
 						id="LastName"
 						name="LastName"
 						value={person.lastName}
-						onChange={(e) => setLastName(e.target.value)}
+						onChange={handleChange}
 					/>
 				</div>
 				<div className="form-control">
@@ -41,12 +45,12 @@ const Forms = () => {
 						id="age"
 						name="age"
 						value={person.age}
-						onChange={(e) => setAge(e.target.value)}
+						onChange={handleChange}
 					/>
 				</div>
 				<div className="form-control">
 					<label htmlFor="sex">Sex:</label>
-					<select onChange={(e) => setSex(e.target.value)} id="sex">
+					<select onChange={handleChange} id="sex">
 						<option value="" selected disabled hidden>
 							Select Sex
 						</option>
@@ -65,7 +69,7 @@ const Forms = () => {
 						id="email"
 						name="email"
 						value={person.email}
-						onChange={(e) => setEmail(e.target.value)}
+						onChange={handleChange}
 					/>
 				</div>
 				<button type="submit" className="btn">
