@@ -1,42 +1,14 @@
 import React, { useState } from "react";
 
 const Forms = () => {
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [age, setAge] = useState("");
-	const [sex, setSex] = useState("");
-	const [email, setEmail] = useState("");
+	const [person, setPerson] = useState({
+		fistName: "",
+		lastName: "",
+		age: "",
+		sex: "",
+		email: "",
+	});
 	const [people, setPeople] = useState([]);
-
-	console.log(people);
-	console.log(firstName);
-	console.log(lastName);
-	console.log(age);
-	console.log(sex);
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (firstName && lastName && age && sex && email) {
-			const person = {
-				firstName: firstName,
-				lastName: lastName,
-				age: age,
-				sex: sex,
-				email: email,
-			};
-
-			setPeople((people) => {
-				return [...people, person];
-			});
-			setFirstName("");
-			setLastName("");
-			setAge("");
-			setSex("");
-			setEmail("");
-		} else {
-			console.log("enter value");
-		}
-	};
 
 	return (
 		<article>
@@ -48,7 +20,7 @@ const Forms = () => {
 						type="text"
 						id="firstName"
 						name="firstName"
-						value={firstName}
+						value={person.firstName}
 						onChange={(e) => setFirstName(e.target.value)}
 					/>
 				</div>
@@ -58,7 +30,7 @@ const Forms = () => {
 						type="text"
 						id="LastName"
 						name="LastName"
-						value={lastName}
+						value={person.lastName}
 						onChange={(e) => setLastName(e.target.value)}
 					/>
 				</div>
@@ -68,7 +40,7 @@ const Forms = () => {
 						type="text"
 						id="age"
 						name="age"
-						value={age}
+						value={person.age}
 						onChange={(e) => setAge(e.target.value)}
 					/>
 				</div>
@@ -92,7 +64,7 @@ const Forms = () => {
 						type="email"
 						id="email"
 						name="email"
-						value={email}
+						value={person.email}
 						onChange={(e) => setEmail(e.target.value)}
 					/>
 				</div>
