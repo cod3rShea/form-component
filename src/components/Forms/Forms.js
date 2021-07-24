@@ -34,8 +34,6 @@ const Forms = () => {
 		}
 	};
 
-	console.log(person.gender);
-
 	return (
 		<article>
 			<h2>Forms</h2>
