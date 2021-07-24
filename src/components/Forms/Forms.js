@@ -10,10 +10,11 @@ const Forms = () => {
 	});
 	const [people, setPeople] = useState([]);
 
-	const handleChange = (e) => {
-		e.prevent;
+	const handleChange = (e) => {};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log("test");
 	};
-
 	return (
 		<article>
 			<h2>Forms</h2>
@@ -72,7 +73,7 @@ const Forms = () => {
 						onChange={handleChange}
 					/>
 				</div>
-				<button type="submit" className="btn">
+				<button type="submit" className="btn" onClick={handleSubmit}>
 					Submit
 				</button>
 			</form>
